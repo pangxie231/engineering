@@ -4,12 +4,16 @@ import commonjs from '@rollup/plugin-commonjs'
 import postcss from 'rollup-plugin-postcss'
 import html from '@rollup/plugin-html'
 import replace from '@rollup/plugin-replace'
+import htmlTemplate from 'rollup-plugin-generate-html-template'
+import serve from 'rollup-plugin-serve'
+
+const isDev = process.env.NODE_ENV === 'development'
 
 /**@type {import('rollup').RollupOptions} */
-export default  {
+export default {
   input: 'src/index.js',
   output: {
-    file: 'bundle.js',
+    dir: 'dist',
     format: 'esm'
   },
   plugins: [
@@ -19,13 +23,20 @@ export default  {
       preprocessStyles: true
     }),
     postcss({}),
-    html(),
+    // html(),
     replace({
       values: {
         'process.env.NODE_ENV': JSON.stringify('production')
       },
       preventAssignment: true,
-    })
+    }),
+    htmlTemplate({
+      template: 'index.html',
+    }),
+    ...(isDev ? [serve({
+      contentBase: 'dist',
+      port: '8080'
+    })]
+      : [])
   ],
-  // external: ['vue']
 }
