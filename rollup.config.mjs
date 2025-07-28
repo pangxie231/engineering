@@ -18,7 +18,8 @@ export default {
   input: 'src/index.ts',
   output: {
     dir: 'dist',
-    format: 'esm'
+    format: 'esm',
+    sourceMap: true
   },
   plugins: [
     del({
@@ -30,7 +31,25 @@ export default {
       preprocessStyles: true,
     }),
     typescript({
-      include: ['*.ts+(|x)', '**/*.ts+(|x)', '*.vue', '**/*.vue'],
+      transformers(p) {
+        return {
+          before: [((program) => {
+            return context => {
+              return sourceFile => {
+                const filename = sourceFile.fileName;
+                const text = sourceFile.getFullText();
+
+                console.log(`\n📄 [transformer] Processing file: ${filename}`);
+                console.log('--- Source code start ---');
+                console.log(text.slice(0, 300)); // 只打印前 300 字符
+                console.log('--- Source code end ---');
+                debugger
+                return sourceFile
+              }
+            }
+          })()]
+        }
+      }
     }),
     postcss({}),
     replace({

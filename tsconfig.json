@@ -9,7 +9,7 @@
     "sourceMap": true,
     "baseUrl": "."
   },
-  "include": ["src/**/*.ts", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.vue", "src/**/*.js"],
   "exclude": [
     "node_modules",
     "**/node_modules/*"
