@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "target": "es6",
+    "strictNullChecks": false,
+    "strictFunctionTypes": false,
+    "sourceMap": true,
+    "baseUrl": "."
+  },
+  "include": ["src/**/*.ts", "src/**/*.vue"],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ]
+}

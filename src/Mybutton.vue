@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const hello = ref('hello world')
@@ -13,7 +13,7 @@ const name = ref('')
   </div>
 </template>
 
-<style scoped lang="postcss">
+<style scoped lang="scss">
 .a {
   color: red;
 }
