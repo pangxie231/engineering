@@ -11,6 +11,7 @@
     "cross-env": "^10.0.0",
     "rollup": "^4.46.0",
     "rollup-plugin-generate-html-template": "^1.7.0",
+    "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-serve": "^3.0.0",
     "rollup-plugin-vue": "^6.0.0"
