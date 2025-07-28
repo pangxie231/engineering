@@ -15,7 +15,7 @@ const isDev = process.env.NODE_ENV === 'development'
 
 /**@type {import('rollup').RollupOptions} */
 export default {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   output: {
     dir: 'dist',
     format: 'esm'
@@ -27,10 +27,10 @@ export default {
     nodeResolve(),
     commonjs(),
     vuePlugin({
-      preprocessStyles: true
+      preprocessStyles: true,
     }),
     typescript({
-      
+      include: ['*.ts+(|x)', '**/*.ts+(|x)', '*.vue', '**/*.vue'],
     }),
     postcss({}),
     replace({

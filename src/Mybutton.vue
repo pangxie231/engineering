@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="js">
 import { ref } from 'vue';
 
 const hello = ref('hello world')
