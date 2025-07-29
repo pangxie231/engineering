@@ -15,7 +15,7 @@ const isDev = process.env.NODE_ENV === 'development'
 
 /**@type {import('rollup').RollupOptions} */
 export default {
-  input: 'src/index.ts',
+  input: 'src/index.js',
   output: {
     dir: 'dist',
     format: 'esm',
@@ -26,31 +26,32 @@ export default {
       targets: 'dist'
     }),
     nodeResolve(),
-    commonjs(),
     vuePlugin({
       preprocessStyles: true,
     }),
-    typescript({
-      transformers(p) {
-        return {
-          before: [((program) => {
-            return context => {
-              return sourceFile => {
-                const filename = sourceFile.fileName;
-                const text = sourceFile.getFullText();
+    // typescript({
+    //   include: ['*.vue', '*.ts', '*.js'],
+    //   transformers(p) {
+    //     return {
+    //       before: [((program) => {
+    //         return context => {
+    //           return sourceFile => {
+    //             const filename = sourceFile.fileName;
+    //             const text = sourceFile.getFullText();
 
-                console.log(`\n📄 [transformer] Processing file: ${filename}`);
-                console.log('--- Source code start ---');
-                console.log(text.slice(0, 300)); // 只打印前 300 字符
-                console.log('--- Source code end ---');
-                debugger
-                return sourceFile
-              }
-            }
-          })()]
-        }
-      }
-    }),
+    //             console.log(`\n📄 [transformer] Processing file: ${filename}`);
+    //             console.log('--- Source code start ---');
+    //             console.log(text.slice(0, 300)); // 只打印前 300 字符
+    //             console.log('--- Source code end ---');
+    //             return sourceFile
+    //           }
+    //         }
+    //       })()]
+    //     }
+    //   }
+    // }),
+    commonjs(),
+
     postcss({}),
     replace({
       values: {
