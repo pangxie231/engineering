@@ -4,11 +4,14 @@ import { ref } from 'vue';
 const hello = ref('hello world')
 
 const name = ref('')
+
+const test: string = 'jg3'
 </script>
 
 <template>
   <div>
     {{ hello }}
+    {{ test }}
     <input v-model="name" type="text">
   </div>
 </template>

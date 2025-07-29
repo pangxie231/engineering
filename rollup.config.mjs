@@ -9,7 +9,8 @@ import serve from 'rollup-plugin-serve'
 import liverealod from 'rollup-plugin-livereload'
 import del from 'rollup-plugin-delete'
 import { visualizer } from 'rollup-plugin-visualizer'
-import typescript from '@rollup/plugin-typescript'
+// import typescript from '@rollup/plugin-typescript'
+import typescript from 'rollup-plugin-typescript2'
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -22,34 +23,14 @@ export default {
     sourceMap: true
   },
   plugins: [
-    del({
-      targets: 'dist'
-    }),
+    // del({
+    //   targets: 'dist'
+    // }),
     nodeResolve(),
     vuePlugin({
       preprocessStyles: true,
     }),
-    // typescript({
-    //   include: ['*.vue', '*.ts', '*.js'],
-    //   transformers(p) {
-    //     return {
-    //       before: [((program) => {
-    //         return context => {
-    //           return sourceFile => {
-    //             const filename = sourceFile.fileName;
-    //             const text = sourceFile.getFullText();
-
-    //             console.log(`\n📄 [transformer] Processing file: ${filename}`);
-    //             console.log('--- Source code start ---');
-    //             console.log(text.slice(0, 300)); // 只打印前 300 字符
-    //             console.log('--- Source code end ---');
-    //             return sourceFile
-    //           }
-    //         }
-    //       })()]
-    //     }
-    //   }
-    // }),
+    typescript(),
     commonjs(),
 
     postcss({}),
