@@ -16,9 +16,6 @@ const isDev = process.env.NODE_ENV === 'development'
 
 /**@type {import('rollup').RollupOptions} */
 export default {
-  watch: {
-    include: 'src/**'
-  },
   input: 'src/index.js',
   output: {
     dir: 'dist',
@@ -26,13 +23,25 @@ export default {
     sourceMap: true
   },
   plugins: [
-    del({
-      targets: 'dist'
-    }),
+    // del({
+    //   targets: 'dist'
+    // }),
     nodeResolve(),
     vuePlugin({
       preprocessStyles: true,
+      compilerOptions: {
+      },
+      
     }),
+    (function() {
+      return {
+        name: 'debugger',
+        transform(context, code, id) {
+          console.log("🚀 ~ transform ~ id:", code ,id)
+          // return code
+        }
+      }
+    })(),
     typescript({
       clean: true
     }),
@@ -50,7 +59,9 @@ export default {
     }),
     ...(
       isDev ?
-        [liverealod()] :
+        [liverealod({
+          watch: 'dist'
+        })] :
         []
     ),
     ...(isDev ? [serve({

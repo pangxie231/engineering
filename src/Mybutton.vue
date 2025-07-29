@@ -5,7 +5,7 @@ const hello = ref('hello world')
 
 const name = ref('')
 
-const test: string = 'jg3'
+const test: string = 'jg'
 </script>
 
 <template>
@@ -13,7 +13,7 @@ const test: string = 'jg3'
     {{ hello }}
     {{ test }}
     <input v-model="name" type="text">
-    <input v-model="name" type="text">
+    <!-- <input v-model="name" type="text"> -->
   </div>
 </template>
 
