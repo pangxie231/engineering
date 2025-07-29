@@ -16,6 +16,9 @@ const isDev = process.env.NODE_ENV === 'development'
 
 /**@type {import('rollup').RollupOptions} */
 export default {
+  watch: {
+    include: 'src/**'
+  },
   input: 'src/index.js',
   output: {
     dir: 'dist',
@@ -23,14 +26,16 @@ export default {
     sourceMap: true
   },
   plugins: [
-    // del({
-    //   targets: 'dist'
-    // }),
+    del({
+      targets: 'dist'
+    }),
     nodeResolve(),
     vuePlugin({
       preprocessStyles: true,
     }),
-    typescript(),
+    typescript({
+      clean: true
+    }),
     commonjs(),
 
     postcss({}),
@@ -43,16 +48,17 @@ export default {
     htmlTemplate({
       template: 'index.html',
     }),
-    ...(isDev ? [serve({
-      contentBase: 'dist',
-      port: '8080'
-    })]
-      : []),
     ...(
       isDev ?
         [liverealod()] :
         []
     ),
+    ...(isDev ? [serve({
+      // contentBase: '',
+      contentBase: '',
+      port: '8080'
+    })]
+      : []),
     visualizer()
   ],
 }

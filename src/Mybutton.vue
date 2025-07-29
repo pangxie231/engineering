@@ -13,6 +13,7 @@ const test: string = 'jg3'
     {{ hello }}
     {{ test }}
     <input v-model="name" type="text">
+    <input v-model="name" type="text">
   </div>
 </template>
 
