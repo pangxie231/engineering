@@ -1,11 +1,11 @@
-<script setup lang="ts">
+<script setup>
 import { ref } from 'vue';
 
 const hello = ref('hello world')
 
 const name = ref('')
 
-const test: string = 'jg'
+const test = 'jg6'
 </script>
 
 <template>

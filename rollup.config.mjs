@@ -27,12 +27,14 @@ export default {
     //   targets: 'dist'
     // }),
     nodeResolve(),
-    vuePlugin({
-      preprocessStyles: true,
-      compilerOptions: {
-      },
+    vuePlugin(
+    //   {
+    //   preprocessStyles: true,
+    //   compilerOptions: {
+    //   },
       
-    }),
+    // }
+  ),
     (function() {
       return {
         name: 'debugger',
@@ -43,7 +45,7 @@ export default {
       }
     })(),
     typescript({
-      clean: true
+      include: [ "*.ts+(|x)", "**/*.ts+(|x)", "**/*.cts", "**/*.mts" ]
     }),
     commonjs(),
 
@@ -57,19 +59,19 @@ export default {
     htmlTemplate({
       template: 'index.html',
     }),
-    ...(
-      isDev ?
-        [liverealod({
-          watch: 'dist'
-        })] :
-        []
-    ),
-    ...(isDev ? [serve({
-      // contentBase: '',
-      contentBase: '',
-      port: '8080'
-    })]
-      : []),
+    // ...(
+    //   isDev ?
+    //     [liverealod({
+    //       watch: 'dist'
+    //     })] :
+    //     []
+    // ),
+    // ...(isDev ? [serve({
+    //   // contentBase: '',
+    //   contentBase: '',
+    //   port: '8080'
+    // })]
+    //   : []),
     visualizer()
   ],
 }
