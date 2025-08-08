@@ -7,8 +7,16 @@
 用rollup
 - 从0搭建一个Vue3的项目
   - 修改文件内容时，热更新 ok
-  - 尝试自己创建一种语法，自己编写一个插件来转换它
   - rollup dev下也会直接写入文件到磁盘而不是内存中(考虑使用esbuild作为开发或者转换成webpack)
   - 添加less、sass、scss、stylus的支持 ok (只要配置了postcss-plugin, 不管是sass或者less都会先通过对应的编译器转为css, 然后css会经过postcss的处理)
-  - 添加对typescript的支持
+  - 添加对typescript的支持 ok (.vue文件下 lang为ts还是有问题)
+  - 尝试自己创建一种语法，自己编写一个插件来转换它
   - 添加jsx/tsx的支持
+  - 添加eslint
+  - 添加prettier
+  - 添加husky
+  - 添加uno
+  - 添加vitest
+
+
+可以直接进入编写rollup插件阶段，可以想一下项目中某些东西通过插件来完成
