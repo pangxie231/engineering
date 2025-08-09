@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 
 const hello = ref('hello world')
@@ -6,6 +6,7 @@ const hello = ref('hello world')
 const name = ref('')
 
 const test = 'jg6'
+console.log('aaa')
 </script>
 
 <template>

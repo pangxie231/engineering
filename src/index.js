@@ -11,4 +11,6 @@ function hello() {
 hello()
 a()
 
+var test = ''
+
 createApp(Mybutton).mount('#app')
