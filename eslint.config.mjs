@@ -21,20 +21,19 @@ import pluginVue from 'eslint-plugin-vue'
 export default defineConfig([
   js.configs['recommended'],
   ...tseslint.configs['recommended'],
-  // ...pluginVue.configs['flat/recommended'],
+  ...pluginVue.configs['flat/recommended'],
   {
-    files: ['**/*.js'],
     languageOptions: {
       globals: globals.browser
     },
   },
-  // {
-  //   files: ['**/*.vue'],
-  //   languageOptions: {
-  //     // vue文件中包含ts,所以需要指定ts的解析器
-  //     parserOptions: {
-  //       parser: tseslint.parser
-  //     }
-  //   }
-  // }
+  {
+    files: ['*.vue', '**/*.vue'],
+    languageOptions: {
+      // vue文件中包含ts,所以需要指定ts的解析器
+      parserOptions: {
+        parser: '@typescript-eslint/parser'
+      }
+    }
+  }
 ])
