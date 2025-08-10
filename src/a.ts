@@ -4,4 +4,5 @@ export function a() {
 
 console.log('aaa')
 
-var a = ''
+const b: string = '1'
+console.log("🚀 ~ b:", b)
