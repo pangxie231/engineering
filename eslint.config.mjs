@@ -28,12 +28,27 @@ export default defineConfig([
     },
   },
   {
-    files: ['*.vue', '**/*.vue'],
+    ignores: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/*.d.ts'
+    ]
+  },
+  {
+    files: ['**/*.vue'],
     languageOptions: {
       // vue文件中包含ts,所以需要指定ts的解析器
       parserOptions: {
         parser: '@typescript-eslint/parser'
       }
     }
+  },
+  // 打包配置
+  {
+    files: ['rollup.config.mjs'],
+    languageOptions: {
+     globals: globals.node 
+    }
   }
+
 ])

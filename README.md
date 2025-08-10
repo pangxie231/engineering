@@ -12,7 +12,7 @@
   - 添加对typescript的支持 ok (.vue文件下 lang为ts还是有问题)
   - 尝试自己创建一种语法，自己编写一个插件来转换它
   - 添加jsx/tsx的支持
-  - 添加eslint
+  - 添加eslint ok
   - 添加prettier (消除不同编辑器之间，代码格式化的问题)
   - 添加husky (代码提交之前，进行格式化，这样能够保证不会忘了代码格式化)
   - 添加uno
