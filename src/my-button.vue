@@ -6,7 +6,7 @@ const hello = ref('hello world')
 const name = ref('')
 
 var test = 'jg6'
-console.log('aaa');
+console.log('aaa')
 
 if (test == 'a') {
   console.log('test')
