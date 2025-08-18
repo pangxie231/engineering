@@ -3,5 +3,5 @@
  */
 export default { 
   '*.{js,ts,vue}': ['eslint --fix','prettier --write'],
-  '*.{css}': ['prettier --list-different']
+  '*.{css}': ['prettier --write']
 }
