@@ -13,4 +13,8 @@ a()
 
 var test = ''
 
+if (test == 'abc') {
+  console.log('test')
+}
+
 createApp(Mybutton).mount('#app')

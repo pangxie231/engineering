@@ -2,5 +2,6 @@
  * @type {import('lint-staged').Configuration}
  */
 export default { 
-  '*.vue': ['prettier --list-different']
+  '*.{js,ts,vue}': ['eslint --fix','prettier --write'],
+  '*.{css}': ['prettier --list-different']
 }
