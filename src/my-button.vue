@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 
 const hello = ref('hello world')
 
@@ -16,13 +16,13 @@ if (test == 'a') {
 
 // }
 
-const obj = ref<{
-  a: string
-  b: number
-}>({
-  a: '1',
-  b: 1,
-})
+// const obj = ref<{
+//   a: string
+//   b: number
+// }>({
+//   a: '1',
+//   b: 1,
+// })
 </script>
 
 <template>
@@ -31,6 +31,8 @@ const obj = ref<{
     {{ test }}
     <input v-model="name" type="text" />
     <input v-model="name" type="text" />
+
+    <div>你好世界</div>
   </div>
 </template>
 
