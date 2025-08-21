@@ -15,6 +15,7 @@
   - 添加eslint ok
   - 添加prettier (消除不同编辑器之间，代码格式化的问题) ok
   - 添加husky (代码提交之前，进行格式化，这样能够保证不会忘了代码格式化)
+  - 添加.editorconfig
   - 添加uno
   - 添加vitest
 
